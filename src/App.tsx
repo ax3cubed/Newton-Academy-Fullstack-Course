@@ -1,5 +1,4 @@
 import "./App.css";
-import Greeting from "./components/Greeeting";
 import Button from "./components/Button";
 import React, { useEffect, useState } from "react";
 import EpisodeList from "./components/EplisodeList";
@@ -38,9 +37,9 @@ const App: React.FC = () => {
   useEffect(() => {
     const root = document.documentElement;
     if (theme === "dark") {
-      root.setAttribute("data-theme", "dark");
+      root.classList.add("dark");
     } else {
-      root.removeAttribute("data-theme");
+      root.classList.remove("dark");
     }
   }, [theme]);
   const message: string ="Welcome to your first typescript based react application";
@@ -49,16 +48,18 @@ const App: React.FC = () => {
   
   return (
     <UserProvider>
-    <div className="App">
+    <div className="dark:bg-[#181818] bg-white">
+      <div className="flex justify-center items-center flex-col text-center dark:text-white text-[#181818]">
       <Sidebar />
       <Header title="Newton Academy" />
-      <Greeting name="Newton Academy" />
+     
       <Button
         label={`Toggle theme to ${theme === "light" ? "dark" : "light"}`}
         onClick={toggleTheme}
       />
       <Button label={isPlaying ? "Pause" : "Play"} onClick={togglePlayback} />
       <p>{message}</p>
+      </div>
       <EpisodeList />
     </div>
     </UserProvider>

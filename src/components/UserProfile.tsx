@@ -7,8 +7,8 @@ import { useUser } from '../Contexts/UserContext';
 const UserProfile: React.FC = () => {
     const { username} = useUser();
   return (
-    <div className="user-profile">
-      <p>Welcome, {username}!</p>
+    <div>
+      <p className='text-base'>Welcome, {username}!</p>
     </div>
   );
 };

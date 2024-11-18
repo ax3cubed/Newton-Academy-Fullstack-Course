@@ -1,4 +1,5 @@
 import React from 'react';
+import Greeting from './Greeeting';
 
 interface HeaderProps {
   title: string;
@@ -7,7 +8,8 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <header>
-      <h1>{title}</h1>
+      <h1 className='font-bold text-2xl'>{title}</h1>
+      <Greeting name={title} />
     </header>
   );
 };
